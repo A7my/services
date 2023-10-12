@@ -39,8 +39,29 @@ use App\Models\ServiceProvider;
                         <tr>
                             <td>{{ $order->id }}</td>
                             <td> {{ Client::find($order->client_id)->name  }}</td>
-                            <td> {{ ServiceProvider::find($order->service_provider_id)->name  }}</td>
-                            <td> {{ ServiceProvider::find($order->service_provider_id)->service->price  }}$</td>
+                            <td>
+                                @php
+                                $serviceProvider = ServiceProvider::find($order->service_provider_id);
+                                @endphp
+
+                                @if ($serviceProvider && $serviceProvider->name)
+                                    {{ $serviceProvider->name }}
+                                @else
+                                    NAn
+                                @endif
+                            </td>
+                            <td>
+                                @php
+                                $serviceProvider = ServiceProvider::find($order->service_provider_id);
+                                @endphp
+
+                                @if ($serviceProvider && $serviceProvider->service && $serviceProvider->service->price)
+                                    {{ $serviceProvider->service->price }}$
+                                @else
+                                    NAn
+                                @endif
+                            </td>
+
                             @if($order->status == 'pending')
                                 <td style="color:rgb(83, 82, 4)">{{ $order->status }}</td>
                             @endif
@@ -62,7 +83,7 @@ use App\Models\ServiceProvider;
 
                             <div class="modal fade" id="orderdetails{{ $order->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                 <div class="card mb-4">
-                                    <h5 class="card-header"> Order Details </h5>
+                                    <h5 class="card-header"> Client Info </h5>
                                     <div class="card-body">
                                         <div>
                                                 <div>

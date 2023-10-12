@@ -8,11 +8,11 @@ class OrderRepositiry
 {
 
 
-    public function order($id)
+    public function order($service_provider_id)
     {
         $order = new Order;
         $order->client_id = auth()->user()->id;
-        $order->service_provider_id =ServiceProvider::find($id)->id;
+        $order->service_provider_id =ServiceProvider::find($service_provider_id)->id;
         $order->status = 'pending';
         $order->save();
         return $order;

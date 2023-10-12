@@ -39,7 +39,13 @@
                                 <td>{{ $serviceProvider->email }}</td>
                                 <td>{{ $serviceProvider->bio }}</td>
                                 <td>{{ $serviceProvider->service['name'] }}</td>
-                                <td> <img width="80px" height="80px" src="{{ URL::asset('images/serviceProviders/'.$serviceProvider->attachment->file ) }}" alt=""></td>
+                                <td>
+                                    @if ($serviceProvider->attachment && $serviceProvider->attachment->file)
+                                        <img width="80px" height="80px" src="{{ URL::asset('images/serviceProviders/' . $serviceProvider->attachment->file) }}" alt="">
+                                    @else
+                                        no image
+                                    @endif
+                                </td>
                                 <td>
 
                                     <span class="btn btn-sm round btn-outline-danger" class="btn btn-danger delete"

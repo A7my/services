@@ -19,10 +19,10 @@ class OrderController extends Controller
         $this->order = $order;
     }
 
-    public function order($id){
-        $serviceProvider = ServiceProvider::find($id);
+    public function order($service_provider_id){
+        $serviceProvider = ServiceProvider::find($service_provider_id);
         if($serviceProvider){
-            $order = $this->order->order($id);
+            $order = $this->order->order($service_provider_id);
             return $this->helper->ResponseJson(1 , 'you made an order' , $order);
         }else{
             return $this->helper->ResponseJson(0 , 'there is no service provider');

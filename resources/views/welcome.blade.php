@@ -9,7 +9,7 @@
 body {
     font-family: Arial, sans-serif;
     text-align: center;
-    background-image: url('https://th.bing.com/th/id/OIP.5N7iK6jqy8s1Jaohf0XZfAHaFj?pid=ImgDet&w=2048&h=1536&rs=1');
+    background-image: url('https://th.bing.com/th/id/OIP.aUM_JglbgYaJu34tWkVZOgHaFj?pid=ImgDet&rs=1');
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;

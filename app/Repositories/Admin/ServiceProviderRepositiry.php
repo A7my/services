@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 namespace App\Repositories\Admin;
 
@@ -32,7 +32,7 @@ class ServiceProviderRepositiry
             $attachment->file = $imageName;
             $attachment->service_provider_id = $serviceProvider->id;
             $attachment->save();
-            return [$serviceProvider , $attachment]; 
+            return [$serviceProvider , $attachment];
         }
 
     }
@@ -41,7 +41,7 @@ class ServiceProviderRepositiry
         $serviceProvider = ServiceProvider::findorfail($id);
         $fileToBeDeleted = URL::asset('images/serviceProviders/' . $serviceProvider->attachment->file);
         if($serviceProvider->attachment->file){
-            // if(file_exists($fileToBeDeleted)){ 
+            // if(file_exists($fileToBeDeleted)){
             // }
             unlink(public_path('images/serviceProviders/'.$serviceProvider->attachment->file));
         }
